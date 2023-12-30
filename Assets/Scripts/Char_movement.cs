@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -27,14 +25,23 @@ public class Char_movement : MonoBehaviour
         float vy = Input.GetAxisRaw("Vertical");
         if (vx != 0 || vy != 0)
         {
-             _animatorController.SetBool("isSwiming", true);
-            _rigidBody2D.velocity = new Vector2(vx * speed, vy*speed);
-            
+            _animatorController.SetBool("isSwiming", true);
+            _rigidBody2D.velocity = new Vector2(vx * speed, vy * speed);
+            if (vx < 0)
+            {
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
+            }
+            else if (vx > 0)
+            {
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
+            }
+
+
         }
         else
         {
             _animatorController.SetBool("isSwiming", false);
-            _rigidBody2D.velocity = Vector2.zero; 
+            _rigidBody2D.velocity = Vector2.zero;
         }
 
     }
