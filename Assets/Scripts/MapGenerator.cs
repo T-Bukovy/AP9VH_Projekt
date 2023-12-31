@@ -10,30 +10,13 @@ public class MapGenerator : MonoBehaviour
 
     public void GenerateMap(int[,] map, GameObject emptySpacePrefab, GameObject wallPrefab,GameObject player,GameObject konec)
     {
-        //for (int i = 0; i < map.GetLength(0); i++)
-        //{
-        //    for (int j = 0; j < map.GetLength(1); j++)
-        //    {
-        //        Vector3 position = new(i * spacing,0, j * spacing);
-
-        //        if (map[i, j] == 0)
-        //        {
-        //            Instantiate(emptySpacePrefab, position, Quaternion.identity);
-        //        }
-        //        else if (map[i, j] == 1)
-        //        {
-        //            Instantiate(wallPrefab, position, Quaternion.identity);
-        //        }
-
-        //    }
-        //}
         int numRows = map.GetLength(0);
         int numCols = map.GetLength(1);
         Debug.Log($"Pocet radku {numRows}");
         Debug.Log($"Pocet sloupecku {numCols}");
         GameObject prefabToInstantiate;
 
-        for (int row = 0; row < numRows; row++)
+        for (int row = numRows - 1; row >= 0; row--)
         {
             for (int col = 0; col < numCols; col++)
             {
