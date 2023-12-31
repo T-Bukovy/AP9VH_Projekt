@@ -7,33 +7,11 @@ public class LevelInit : MonoBehaviour
     [SerializeField] private GameObject wallPrefab;
     void Start()
     {
-        int[,] randMap1 = {
-            {0, 0, 0, 0, 0},
-            {0, 1, 1, 1, 0},
-            {0, 1, 0, 1, 0},
-            {0, 1, 1, 1, 0},
-            {0, 0, 0, 0, 0}
-        };
-        int[,] randMap2 = {
-            {0, 1, 1, 1, 0},
-            {0, 1, 0, 1, 0},
-            {0, 1, 0, 1, 0},
-            {0, 1, 0, 1, 0},
-            {0, 1, 1, 1, 0}
-        };
-        int[,] randMap3 = {
-            {1, 1, 1, 1, 0},
-            {1, 0, 0, 1, 0},
-            {1, 0, 0, 1, 0},
-            {1, 0, 0, 1, 0},
-            {1, 1, 1, 1, 0}
-        };
-
         int[,] randMap4 = {
             {1, 1, 1, 1, 1},
-            {1, 0, 0, 0, 1},
             {1, 0, 1, 0, 1},
-            {1, 0, 0, 0, 1},
+            {1, 1, 1, 1, 1},
+            {1, 0, 1, 0, 1},
             {1, 1, 1, 1, 1}
         };
 
@@ -43,23 +21,8 @@ public class LevelInit : MonoBehaviour
         Debug.Log(mapa);
 
         MapGenerator mp = new MapGenerator(); //zavolám instanci tøídy MapGenerator a pøedám random matici pro mapu
-        mp.GenerateMap(randMap1, emptyPrefab, wallPrefab);
-        switch (mapa)
-        {
-            case 1:
-                mp.GenerateMap(randMap1, emptyPrefab, wallPrefab);
-                break;
-            case 2:
-                mp.GenerateMap(randMap2, emptyPrefab, wallPrefab);
-                break;
-            case 3:
-                mp.GenerateMap(randMap3, emptyPrefab, wallPrefab);
-                break;
-            case 4:
-                mp.GenerateMap(randMap4, emptyPrefab, wallPrefab);
-                break;
+        mp.GenerateMap(randMap4, emptyPrefab, wallPrefab);
 
-        }
         Debug.Log("Volám generátor...");
     }
 
