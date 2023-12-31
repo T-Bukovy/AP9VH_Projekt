@@ -25,11 +25,23 @@ public class MapGenerator : MonoBehaviour
                 // Instantiate the corresponding prefab based on the matrix value
                 if (matrixValue == 0)
                 {
-                    prefabToInstantiate = emptySpacePrefab;
+                    // Adjust the x and y positions to create a grid-like structure
+                    float xPosition = col * spacingX; // Use col for horizontal position
+                    float yPosition = row * spacingY; // Use row for vertical position
+                    Vector3 position = new Vector3(xPosition, yPosition, 0);
+
+                    // Instantiate the prefab at the specified position
+                    Instantiate(emptySpacePrefab, position, Quaternion.identity);
                 }
                 else if (matrixValue == 1)
                 {
-                    prefabToInstantiate = wallPrefab;
+                    // Adjust the x and y positions to create a grid-like structure
+                    float xPosition = col * spacingX; // Use col for horizontal position
+                    float yPosition = row * spacingY; // Use row for vertical position
+                    Vector3 position = new Vector3(xPosition, yPosition, 0);
+
+                    // Instantiate the prefab at the specified position
+                    Instantiate(wallPrefab, position, Quaternion.identity);
                 }
                 else if (matrixValue == 2) //dvojka bude pocatecni pozice hráèe 
                 {
@@ -41,13 +53,29 @@ public class MapGenerator : MonoBehaviour
                 {
                     //TODO: nìjaký random generator, který urèí, jestli na tom bodì nìco bude a nebo ne 
                     //      emh... nìjaký asset pro pøedmìty
-                    continue; 
+                    continue;
                 }
                 else if (matrixValue == 4) //Konec 
                 {
-                   
+
                     Vector3 endPoint = new Vector3(col * spacingX, row * spacingY, 0);
                     Instantiate(konec, endPoint, Quaternion.identity);
+                    continue;
+                }
+                else if (matrixValue == 6) //levy dolni roh 
+                {
+                    continue;
+                }
+                else if (matrixValue == 7) //levy horni roh 
+                {
+                    continue;
+                }
+                else if (matrixValue == 8) //pravy dolni roh 
+                {
+                    continue;
+                }
+                else if (matrixValue == 9) //pravy horni roh 
+                {
                     continue;
                 }
                 else
@@ -55,14 +83,6 @@ public class MapGenerator : MonoBehaviour
                     // Handle other matrix values or leave it as null if there's no corresponding prefab
                     continue;
                 }
-
-                // Adjust the x and y positions to create a grid-like structure
-                float xPosition = col * spacingX; // Use col for horizontal position
-                float yPosition = row * spacingY; // Use row for vertical position
-                Vector3 position = new Vector3(xPosition, yPosition, 0);
-
-                // Instantiate the prefab at the specified position
-                Instantiate(prefabToInstantiate, position, Quaternion.identity);
             }
         }
 
