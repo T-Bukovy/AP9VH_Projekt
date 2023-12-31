@@ -5,14 +5,16 @@ public class LevelInit : MonoBehaviour
 
     [SerializeField] private GameObject emptyPrefab;
     [SerializeField] private GameObject wallPrefab;
+    [SerializeField] private GameObject Player;
+    [SerializeField] private GameObject Konec;
     void Start()
     {
         int[,] randMap4 = {
-            {1, 1, 1, 1, 1},
-            {1, 0, 1, 0, 1},
-            {1, 1, 1, 1, 1},
-            {1, 0, 1, 0, 1},
-            {1, 1, 1, 1, 1}
+            {1, 1, 1, 1, 1, 1, 1, 1},
+            {1, 0, 0, 0, 1, 0, 4, 1},
+            {1, 0, 0, 0, 0, 0, 0, 1},
+            {1, 2, 0, 0, 0, 0, 0, 1},
+            {1, 1, 1, 1, 1, 1, 1, 1}
         };
 
 
@@ -21,7 +23,7 @@ public class LevelInit : MonoBehaviour
         Debug.Log(mapa);
 
         MapGenerator mp = new MapGenerator(); //zavolám instanci tøídy MapGenerator a pøedám random matici pro mapu
-        mp.GenerateMap(randMap4, emptyPrefab, wallPrefab);
+        mp.GenerateMap(randMap4, emptyPrefab, wallPrefab,Player,Konec);
 
         Debug.Log("Volám generátor...");
     }

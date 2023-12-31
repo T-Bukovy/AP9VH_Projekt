@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class MapGenerator : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class MapGenerator : MonoBehaviour
     private int spacingX = 1;
     private int spacingY = 1;
 
-    public void GenerateMap(int[,] map, GameObject emptySpacePrefab, GameObject wallPrefab)
+    public void GenerateMap(int[,] map, GameObject emptySpacePrefab, GameObject wallPrefab,GameObject player,GameObject konec)
     {
         //for (int i = 0; i < map.GetLength(0); i++)
         //{
@@ -49,6 +50,8 @@ public class MapGenerator : MonoBehaviour
                 }
                 else if (matrixValue == 2) //dvojka bude pocatecni pozice hráèe 
                 {
+                    Transform transform = player.transform;
+                    transform.position = new Vector3(col * spacingX, row * spacingY, 0);
                     continue;
                 }
                 else if (matrixValue == 3) //hodnota pro pøedmìty na sbírání 
@@ -56,6 +59,13 @@ public class MapGenerator : MonoBehaviour
                     //TODO: nìjaký random generator, který urèí, jestli na tom bodì nìco bude a nebo ne 
                     //      emh... nìjaký asset pro pøedmìty
                     continue; 
+                }
+                else if (matrixValue == 4) //Konec 
+                {
+                   
+                    Vector3 endPoint = new Vector3(col * spacingX, row * spacingY, 0);
+                    Instantiate(konec, endPoint, Quaternion.identity);
+                    continue;
                 }
                 else
                 {
