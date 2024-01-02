@@ -18,6 +18,6 @@
 - 24 - Textury_vnejsiRoh_4.png
 ---
 - 31 - Textury_vnitrniRoh_1.png
-- 32 - Textury_vnitrniRoh_1.png
-- 33 - Textury_vnitrniRoh_1.png
-- 34 - Textury_vnitrniRoh_1.png
+- 32 - Textury_vnitrniRoh_2.png
+- 33 - Textury_vnitrniRoh_3.png
+- 34 - Textury_vnitrniRoh_4.png
