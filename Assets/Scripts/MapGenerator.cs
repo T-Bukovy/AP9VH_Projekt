@@ -1,12 +1,15 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 using static UnityEngine.GraphicsBuffer;
 
 public class MapGenerator : MonoBehaviour
 {
     // Start is called before the first frame update
     //float spacing = 1f;
-    private int spacingX = 1;
-    private int spacingY = 1;
+    private float spacingX = 1.28F; //prostì na pevno ... god knows jak velký to vlastnì je v pomìru na units v Unity 
+    private float spacingY = 1.28F;
 
     public void GenerateMap(int[,] map, GameObject emptySpacePrefab, GameObject wallPrefab,GameObject player,GameObject konec)
     {
@@ -14,14 +17,15 @@ public class MapGenerator : MonoBehaviour
         int numCols = map.GetLength(1);
         Debug.Log($"Pocet radku {numRows}");
         Debug.Log($"Pocet sloupecku {numCols}");
-        GameObject prefabToInstantiate;
-
+            
         for (int row = numRows - 1; row >= 0; row--)
+        //for (int row = 0; row < numRows; row++)
         {
+            //for (int col = numCols - 1; col >= 0; col--)
             for (int col = 0; col < numCols; col++)
             {
                 int matrixValue = map[row, col];
-
+                Console.Write(map[row, col] + " ");
                 // Instantiate the corresponding prefab based on the matrix value
                 if (matrixValue == 0)
                 {
@@ -32,6 +36,7 @@ public class MapGenerator : MonoBehaviour
 
                     // Instantiate the prefab at the specified position
                     Instantiate(emptySpacePrefab, position, Quaternion.identity);
+                    
                 }
                 else if (matrixValue == 1)
                 {
@@ -47,7 +52,7 @@ public class MapGenerator : MonoBehaviour
                 {
                     Transform transform = player.transform;
                     transform.position = new Vector3(col * spacingX, row * spacingY, 0);
-                    continue;
+                    //continue;
                 }
                 else if (matrixValue == 3) //hodnota pro pøedmìty na sbírání 
                 {
@@ -57,24 +62,27 @@ public class MapGenerator : MonoBehaviour
                 }
                 else if (matrixValue == 4) //Konec 
                 {
+                    float xPosition = col * spacingX; // Use col for horizontal position
+                    float yPosition = row * spacingY; // Use row for vertical position
+                    Vector3 position = new Vector3(xPosition, yPosition, 0);
 
-                    Vector3 endPoint = new Vector3(col * spacingX, row * spacingY, 0);
-                    Instantiate(konec, endPoint, Quaternion.identity);
-                    continue;
+                    // Instantiate the prefab at the specified position
+                    Instantiate(konec, position, Quaternion.identity);
+
                 }
-                else if (matrixValue == 6) //levy dolni roh 
+                else if (matrixValue == 11) 
                 {
                     continue;
                 }
-                else if (matrixValue == 7) //levy horni roh 
+                else if (matrixValue == 12)  
                 {
                     continue;
                 }
-                else if (matrixValue == 8) //pravy dolni roh 
+                else if (matrixValue == 13) 
                 {
                     continue;
                 }
-                else if (matrixValue == 9) //pravy horni roh 
+                else if (matrixValue == 14)
                 {
                     continue;
                 }
@@ -89,6 +97,7 @@ public class MapGenerator : MonoBehaviour
 
 
         Debug.Log("Mapa done...");
+        
     }
 
 
