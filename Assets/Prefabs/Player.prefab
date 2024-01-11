@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 3649769867577443877}
   - component: {fileID: 4551107025903852515}
   - component: {fileID: 3124025138773356271}
+  - component: {fileID: 2780907744300698387}
   - component: {fileID: 2312026101199365919}
+  - component: {fileID: 2745664018650436184}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -120,8 +122,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.08358812, y: 0.16503298}
-  m_Size: {x: 0.84992266, y: 0.84992266}
+  m_Offset: {x: 0.08358812, y: 0.07441521}
+  m_Size: {x: 0.84992266, y: 1.0311582}
   m_Direction: 0
 --- !u!95 &4551107025903852515
 Animator:
@@ -171,6 +173,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2780907744300698387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7883791905558880270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 505c9b9e96425154ab67a534b8a14ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 0}
 --- !u!114 &2312026101199365919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,3 +199,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.2
+--- !u!114 &2745664018650436184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7883791905558880270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab03a153fb8c52e408c00fcf0ab2e39f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

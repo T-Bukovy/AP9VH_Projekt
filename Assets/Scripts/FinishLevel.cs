@@ -20,7 +20,8 @@ public class FinishLevel : MonoBehaviour
 
     private void CompleteLevel()
     {
+        PointCollector.globalScore = PointCollector.levelScore;
         Debug.Log("Loading next level...");
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
