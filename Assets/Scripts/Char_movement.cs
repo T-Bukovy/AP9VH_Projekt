@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -11,6 +13,14 @@ public class Char_movement : MonoBehaviour
     [Tooltip("Speed")]
     [Range(0, 50)]
     float speed = 3;
+
+    [SerializeField]
+    [Tooltip("Dash Speed")]
+    [Range(0, 100)]
+    float dashSpeed = 10;
+
+    bool isDashing = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,28 +31,55 @@ public class Char_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space) && !isDashing)
+        {
+            StartCoroutine(Dash());
+        }
+
         float vx = Input.GetAxisRaw("Horizontal");
         float vy = Input.GetAxisRaw("Vertical");
-        if (vx != 0 || vy != 0)
+
+        if (!isDashing)
         {
-            _animatorController.SetBool("isSwiming", true);
-            _rigidBody2D.velocity = new Vector2(vx * speed, vy * speed);
-            if (vx < 0)
+            if (vx != 0 || vy != 0)
             {
-                transform.localRotation = Quaternion.Euler(0, 180, 0);
+                _animatorController.SetBool("isSwimming", true);
+                _rigidBody2D.velocity = new Vector2(vx * speed, vy * speed);
+                if (vx < 0)
+                {
+                    transform.localRotation = Quaternion.Euler(0, 180, 0);
+                }
+                else if (vx > 0)
+                {
+                    transform.localRotation = Quaternion.Euler(0, 0, 0);
+                }
             }
-            else if (vx > 0)
+            else
             {
-                transform.localRotation = Quaternion.Euler(0, 0, 0);
+                _animatorController.SetBool("isSwimming", false);
+                _rigidBody2D.velocity = Vector2.zero;
             }
-
-
         }
-        else
-        {
-            _animatorController.SetBool("isSwiming", false);
-            _rigidBody2D.velocity = Vector2.zero;
-        }
-
     }
+
+    IEnumerator Dash()
+    {
+        isDashing = true;
+
+        float dashTime = 0.2f; // Adjust the dash duration as needed
+        float startTime = Time.time;
+
+        while (Time.time < startTime + dashTime)
+        {
+            float vx = Input.GetAxisRaw("Horizontal");
+            float vy = Input.GetAxisRaw("Vertical");
+
+            _rigidBody2D.velocity = new Vector2(vx * dashSpeed, vy * dashSpeed);
+
+            yield return null;
+        }
+
+        isDashing = false;
+    }
+
 }
