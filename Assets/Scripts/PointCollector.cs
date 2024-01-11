@@ -19,7 +19,12 @@ public class PointCollector : MonoBehaviour
             levelScore++;
             scoreText.text = "Skore: " + levelScore;
         }
+
+    
     }
+
+
+
     void Start()
     {
         scoreText.text = "Score: " + levelScore;
