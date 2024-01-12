@@ -12,7 +12,7 @@ public class Char_movement : MonoBehaviour
     [SerializeField]
     [Tooltip("Speed")]
     [Range(0, 50)]
-    float speed = 3;
+    public float speed = 3;
 
     [SerializeField]
     [Tooltip("Dash Speed")]

@@ -10,7 +10,7 @@ public class MapGenerator : MonoBehaviour
     //float spacing = 1f;
     private float spacingX = 1.28F; //prostì na pevno ... god knows jak velký to vlastnì je v pomìru na units v Unity 
     private float spacingY = 1.28F;
-    public void GenerateMap(int[,] map, GameObject emptySpacePrefab, GameObject wallPrefab,GameObject player,GameObject konec,GameObject bodik, GameObject rasa,
+    public void GenerateMap(int[,] map, GameObject emptySpacePrefab, GameObject wallPrefab,GameObject player,GameObject konec,GameObject bodik, GameObject rasa, GameObject rasaLong,
                     GameObject Textury_Kraj_1, GameObject Textury_Kraj_2, GameObject Textury_Kraj_3, GameObject Textury_Kraj_4,
                     GameObject Textury_vnejsiRoh_1, GameObject Textury_vnejsiRoh_2, GameObject Textury_vnejsiRoh_3, GameObject Textury_vnejsiRoh_4,
                     GameObject Textury_vnitrniRoh_1, GameObject Textury_vnitrniRoh_2, GameObject Textury_vnitrniRoh_3, GameObject Textury_vnitrniRoh_4)
@@ -50,7 +50,7 @@ public class MapGenerator : MonoBehaviour
                 }
                 else if (matrixValue == 3) //hodnota pro pøedmìty na sbírání 
                 {
-                    Vector3 position = new Vector3(xPosition, yPosition-0.38F, 0);
+                    Vector3 position = new Vector3(xPosition, yPosition-0.48F, 0);
                     Instantiate(bodik, position, Quaternion.identity);
                 }
                 else if (matrixValue == 4) //Konec 
@@ -65,6 +65,14 @@ public class MapGenerator : MonoBehaviour
                     Instantiate(rasa, position, Quaternion.identity);
 
                 }
+                else if (matrixValue == 6) //RasaLong
+                {
+                    Vector3 position = new Vector3(xPosition, 0.58F, 0);
+                    Instantiate(rasaLong, position, Quaternion.identity);
+
+                }
+
+
                 else if (matrixValue == 11) 
                 {
                     Vector3 position = new Vector3(xPosition, yPosition, 0);

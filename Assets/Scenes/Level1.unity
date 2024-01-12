@@ -175,6 +175,7 @@ MonoBehaviour:
   Konec: {fileID: 1921375809836240889, guid: 78c37f0c43767474ea620460793b9ae3, type: 3}
   Bodik: {fileID: 1924941573959919782, guid: 82fbe7b3b9be5c64796824cdff144353, type: 3}
   Rasa: {fileID: 7564968368195062520, guid: e9ef47368101ae647acb172d8dc533bd, type: 3}
+  RasaLong: {fileID: 1071234230244589847, guid: 69d88fddbd9812348bc57867bd84985e, type: 3}
   Textury_Kraj_1: {fileID: 5132738532786913193, guid: ab7613cfdb849b9429f475bf0d328bf5, type: 3}
   Textury_Kraj_2: {fileID: 6053208334519817537, guid: 0e42a9ea55a73d24d8738fb96dbd4efe, type: 3}
   Textury_Kraj_3: {fileID: 4996001810331931839, guid: 60a8ed999badc3941973450ab84af7b6, type: 3}
@@ -697,7 +698,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Placeholder
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
