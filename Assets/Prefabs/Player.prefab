@@ -186,6 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &2312026101199365919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.2
+  dashSpeed: 10
 --- !u!114 &2745664018650436184
 MonoBehaviour:
   m_ObjectHideFlags: 0

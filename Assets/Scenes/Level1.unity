@@ -843,15 +843,27 @@ PrefabInstance:
     - target: {fileID: 2780907744300698387, guid: d45d6c2917bd68e46a70d2972ad63385, type: 3}
       propertyPath: bodik
       value: 
-      objectReference: {fileID: 1924941573959919782, guid: 82fbe7b3b9be5c64796824cdff144353, type: 3}
+      objectReference: {fileID: 4308682915080190351, guid: 82fbe7b3b9be5c64796824cdff144353, type: 3}
     - target: {fileID: 2780907744300698387, guid: d45d6c2917bd68e46a70d2972ad63385, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1081461779}
+      objectReference: {fileID: 364010937}
+    - target: {fileID: 2780907744300698387, guid: d45d6c2917bd68e46a70d2972ad63385, type: 3}
+      propertyPath: farSprite
+      value: 
+      objectReference: {fileID: 466207336, guid: 995b21f382173cd42b6ce088ee7fd931, type: 3}
     - target: {fileID: 2780907744300698387, guid: d45d6c2917bd68e46a70d2972ad63385, type: 3}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 2050900619}
+    - target: {fileID: 2780907744300698387, guid: d45d6c2917bd68e46a70d2972ad63385, type: 3}
+      propertyPath: closeSprite
+      value: 
+      objectReference: {fileID: 1806489, guid: 995b21f382173cd42b6ce088ee7fd931, type: 3}
+    - target: {fileID: 2780907744300698387, guid: d45d6c2917bd68e46a70d2972ad63385, type: 3}
+      propertyPath: mediumSprite
+      value: 
+      objectReference: {fileID: -872991939, guid: 995b21f382173cd42b6ce088ee7fd931, type: 3}
     - target: {fileID: 3649769867577443877, guid: d45d6c2917bd68e46a70d2972ad63385, type: 3}
       propertyPath: m_Size.y
       value: 1.0311582
