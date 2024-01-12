@@ -11,6 +11,8 @@ public class LevelInit : MonoBehaviour
     [SerializeField] private GameObject Player;
     [SerializeField] private GameObject Konec;
     [SerializeField] private GameObject Bodik;
+    [SerializeField] private GameObject Rasa;
+
 
     //Kraje
     [SerializeField] private GameObject Textury_Kraj_1;
@@ -52,21 +54,35 @@ public class LevelInit : MonoBehaviour
 
     public void Generate()
     {
-        int[,] randMap4 = {
+        int[][,] matrixOfMaps = new int[2][,];
+
+        matrixOfMaps[0] = new int[,] 
+        {
             {34, 12, 12, 12, 12, 12, 12, 33},
             {13, 4 , 0 , 0 , 1 , 0 , 0 , 14},
             {13, 0 , 0 , 0 , 0 , 0 , 0 , 14},
-            {13, 2 , 0 , 0 , 1 , 0 , 3 , 14},
+            {13, 2 , 0 , 5 , 5 , 0 , 3 , 14},
             {32, 11, 11, 11, 11, 11, 11, 31}
         };
 
+        matrixOfMaps[1] = new int[,]
+ {
+            {34, 12, 12, 12, 12, 12, 12, 33},
+            {13, 4 , 0 , 0 , 0 , 0 , 3 , 14},
+            {13, 0 , 0 , 0 , 0 , 0 , 0 , 14},
+            {13, 2 , 0 , 5 , 0 , 0 , 5 , 14},
+            {32, 11, 11, 11, 11, 11, 11, 31}
+ };
+
 
         System.Random rnd = new System.Random();
-        int mapa = rnd.Next(1, 4);
+        int mapa = rnd.Next(0, 2);
         Debug.Log(mapa);
 
+        int[,] selectedMap = matrixOfMaps[mapa];
+
         MapGenerator mp = new MapGenerator(); //zavolám instanci tøídy MapGenerator a pøedám random matici pro mapu
-        mp.GenerateMap(randMap4, emptyPrefab, wallPrefab,Player,Konec, Bodik,
+        mp.GenerateMap(selectedMap, emptyPrefab, wallPrefab,Player,Konec, Bodik,Rasa,
                         Textury_Kraj_1,Textury_Kraj_2,Textury_Kraj_3,Textury_Kraj_4,
                         Textury_vnejsiRoh_1, Textury_vnejsiRoh_2, Textury_vnejsiRoh_3, Textury_vnejsiRoh_4,
                         Textury_vnitrniRoh_1, Textury_vnitrniRoh_2, Textury_vnitrniRoh_3, Textury_vnitrniRoh_4
