@@ -840,6 +840,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2312026101199365919, guid: d45d6c2917bd68e46a70d2972ad63385, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 6453711323615483620, guid: 4339302677b5c0d42807ef3d647cca57, type: 3}
     - target: {fileID: 2780907744300698387, guid: d45d6c2917bd68e46a70d2972ad63385, type: 3}
       propertyPath: bodik
       value: 

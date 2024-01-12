@@ -187,6 +187,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
   player: {fileID: 0}
+  bodik: {fileID: 0}
+  closeSprite: {fileID: 0}
+  farSprite: {fileID: 0}
+  mediumSprite: {fileID: 0}
+  closeDistance: 2
+  farDistance: 3
 --- !u!114 &2312026101199365919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +207,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.2
   dashSpeed: 10
+  projectilePrefab: {fileID: 0}
+  maxProjectileRange: 10
 --- !u!114 &2745664018650436184
 MonoBehaviour:
   m_ObjectHideFlags: 0
