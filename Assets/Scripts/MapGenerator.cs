@@ -10,6 +10,9 @@ public class MapGenerator : MonoBehaviour
     //float spacing = 1f;
     private float spacingX = 1.28F; //prostì na pevno ... god knows jak velký to vlastnì je v pomìru na units v Unity 
     private float spacingY = 1.28F;
+
+    public static Vector3 PlayerStart;
+    
     public void GenerateMap(int[,] map, GameObject emptySpacePrefab, GameObject wallPrefab,GameObject player,GameObject konec,GameObject bodik, GameObject rasa, GameObject rasaLong,
                     GameObject Textury_Kraj_1, GameObject Textury_Kraj_2, GameObject Textury_Kraj_3, GameObject Textury_Kraj_4,
                     GameObject Textury_vnejsiRoh_1, GameObject Textury_vnejsiRoh_2, GameObject Textury_vnejsiRoh_3, GameObject Textury_vnejsiRoh_4,
@@ -45,6 +48,7 @@ public class MapGenerator : MonoBehaviour
                 }
                 else if (matrixValue == 2) //dvojka bude pocatecni pozice hráèe 
                 {
+                    PlayerStart = new Vector3(col * spacingX, (numRows - row - 1) * spacingY, 0);
                     player.transform.position = new Vector3(col * spacingX, (numRows - row - 1) * spacingY, 0);
                     //continue;
                 }

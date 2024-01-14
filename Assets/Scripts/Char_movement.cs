@@ -32,6 +32,8 @@ public class Char_movement : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
 
     bool isDashing = false;
+    //private static bool playerExists = false;
+
 
     // Start is called before the first frame update
     void Start()

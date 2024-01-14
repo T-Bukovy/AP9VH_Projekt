@@ -685,7 +685,10 @@ MonoBehaviour:
   - {fileID: 540562740, guid: 08a542de53d727e49bb7fe4f9ebd2606, type: 3}
   - {fileID: -738494376, guid: 08a542de53d727e49bb7fe4f9ebd2606, type: 3}
   Player: {fileID: 1081461779}
+  lighting: {fileID: 6453711323615483620, guid: 5670595bf1e03c544be5d1e4f1bfb29c, type: 3}
   maxDistance: 2
+  shootDelay: 2
+  bulletSpeed: 5
 --- !u!212 &1933114675
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -747,7 +750,7 @@ Transform:
   m_GameObject: {fileID: 1933114673}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4641384, y: 0.6281898, z: 0}
+  m_LocalPosition: {x: 6.94, y: 0.6281898, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1030,6 +1033,18 @@ PrefabInstance:
     - target: {fileID: 7883791905558880270, guid: d45d6c2917bd68e46a70d2972ad63385, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7883791905558880270, guid: d45d6c2917bd68e46a70d2972ad63385, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7883791905558880270, guid: d45d6c2917bd68e46a70d2972ad63385, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7883791905558880270, guid: d45d6c2917bd68e46a70d2972ad63385, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8076101482924451564, guid: d45d6c2917bd68e46a70d2972ad63385, type: 3}
       propertyPath: m_LocalPosition.x

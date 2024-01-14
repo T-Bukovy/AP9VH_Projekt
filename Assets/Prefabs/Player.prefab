@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2780907744300698387}
   - component: {fileID: 2312026101199365919}
   - component: {fileID: 2745664018650436184}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,11 +186,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
-  player: {fileID: 0}
-  bodik: {fileID: 0}
-  closeSprite: {fileID: 0}
-  farSprite: {fileID: 0}
-  mediumSprite: {fileID: 0}
+  player: {fileID: 8076101482924451564}
+  bodik: {fileID: 4308682915080190351, guid: 82fbe7b3b9be5c64796824cdff144353, type: 3}
+  closeSprite: {fileID: 1806489, guid: 995b21f382173cd42b6ce088ee7fd931, type: 3}
+  farSprite: {fileID: 466207336, guid: 995b21f382173cd42b6ce088ee7fd931, type: 3}
+  mediumSprite: {fileID: -872991939, guid: 995b21f382173cd42b6ce088ee7fd931, type: 3}
   closeDistance: 2
   farDistance: 3
 --- !u!114 &2312026101199365919
@@ -207,8 +207,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.2
   dashSpeed: 10
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 6453711323615483620, guid: 4339302677b5c0d42807ef3d647cca57, type: 3}
   maxProjectileRange: 10
+  scoreText: {fileID: 0}
 --- !u!114 &2745664018650436184
 MonoBehaviour:
   m_ObjectHideFlags: 0
