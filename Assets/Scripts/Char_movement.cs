@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -27,6 +28,8 @@ public class Char_movement : MonoBehaviour
     [Tooltip("Max Range for Projectile")]
     float maxProjectileRange = 10f;
     float shootSpeed = 10;
+
+    [SerializeField] private TextMeshProUGUI scoreText;
 
     bool isDashing = false;
 
@@ -98,29 +101,37 @@ public class Char_movement : MonoBehaviour
 
     void ShootProjectile()
     {
-        if (projectilePrefab != null)
+        if(PointCollector.levelScore > 0)
         {
-            // Instantiate the projectile
-            GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+            if (projectilePrefab != null)
+            {
+                // Instantiate the projectile
+                GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
 
-            // Set the rotation of the projectile to match the character's rotation
-            projectile.transform.rotation = transform.rotation;
+                // Set the rotation of the projectile to match the character's rotation
+                projectile.transform.rotation = transform.rotation;
 
-            // Get the Rigidbody2D of the projectile
-            Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
+                // Get the Rigidbody2D of the projectile
+                Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
 
-            // Set the velocity to move horizontally
-            projectileRb.velocity = transform.right * shootSpeed; // Change this to the desired speed
+                // Set the velocity to move horizontally
+                projectileRb.velocity = transform.right * shootSpeed; // Change this to the desired speed
 
-            // Set gravity scale to 0 to prevent falling
-            projectileRb.gravityScale = 0;
+                // Set gravity scale to 0 to prevent falling
+                projectileRb.gravityScale = 0;
 
-            // Ignore collisions with the character
-            Physics2D.IgnoreCollision(projectile.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+                // Ignore collisions with the character
+                Physics2D.IgnoreCollision(projectile.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 
-            // Destroy the projectile after reaching max range
-            Destroy(projectile, maxProjectileRange / shootSpeed);
+                // Destroy the projectile after reaching max range
+                Destroy(projectile, maxProjectileRange / shootSpeed);
+
+                PointCollector.levelScore--;
+                scoreText.text = "Skore: " + PointCollector.levelScore;
+
+            }
         }
+        
     }
 
 }
