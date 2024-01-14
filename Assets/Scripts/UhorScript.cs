@@ -20,9 +20,11 @@ public class UhorScrip : MonoBehaviour
 
     private float distance;
     private GameObject Player;
+    private bool isFacingLeft;
     // Start is called before the first frame update
     void Start()
     {
+        isFacingLeft = true;
         spriteRenderer = GetComponent<SpriteRenderer>();
         _animatorController = GetComponent<Animator>();
         Player = GameObject.FindGameObjectWithTag("Player");
@@ -60,9 +62,10 @@ public class UhorScrip : MonoBehaviour
                         Shoot();
                         lastShootTime = Time.time;
                     }
-                    else
+                    else if(isFacingLeft)
                     {
                         _animatorController.SetTrigger("PlayerRight");
+                        isFacingLeft = false;
                     }
                 }
                 else
@@ -73,22 +76,14 @@ public class UhorScrip : MonoBehaviour
                         Shoot();
                         lastShootTime = Time.time;
                     }
-                    else
+                    else if(!isFacingLeft)
                     {
                         _animatorController.SetTrigger("PlayerLeft");
+                        isFacingLeft = true;
                     }
                 }
             }
         }
-    }
-
-    void ChangeSprite(Sprite[] sprites)
-    {
-        // Rotate towards the player
- 
-
-        // Change the sprite based on direction
-        spriteRenderer.sprite = sprites[2]; // Assuming you only have one sprite for each direction
     }
 
     void Shoot()
