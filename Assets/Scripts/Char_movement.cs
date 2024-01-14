@@ -33,7 +33,7 @@ public class Char_movement : MonoBehaviour
 
     bool isDashing = false;
     //private static bool playerExists = false;
-
+    private bool isRepeating = false;
 
     // Start is called before the first frame update
     void Start()
@@ -42,12 +42,27 @@ public class Char_movement : MonoBehaviour
         _rigidBody2D = GetComponent<Rigidbody2D>();
     }
 
+    void startDashRoutine()
+    {
+        StartCoroutine(Dash());
+    }
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && !isDashing)
         {
-            StartCoroutine(Dash());
+            if (isRepeating)
+            {
+                // If InvokeRepeating is already active, stop it
+                CancelInvoke("startDashRoutine");
+                isRepeating = false;
+            }
+            else
+            {
+                // If InvokeRepeating is not active, start it
+                InvokeRepeating("startDashRoutine", 0f, 8f);
+                isRepeating = true;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.RightShift))
