@@ -111,10 +111,10 @@ MonoBehaviour:
   - {fileID: -9983576, guid: 08a542de53d727e49bb7fe4f9ebd2606, type: 3}
   - {fileID: 540562740, guid: 08a542de53d727e49bb7fe4f9ebd2606, type: 3}
   - {fileID: -738494376, guid: 08a542de53d727e49bb7fe4f9ebd2606, type: 3}
-  lighting: {fileID: 6453711323615483620, guid: 5670595bf1e03c544be5d1e4f1bfb29c, type: 3}
-  maxDistance: 2
+  lighting: {fileID: 8542154401468345281, guid: ce0744c3fc5ae854bbf8f3a373104e22, type: 3}
+  maxDistance: 4
   shootDelay: 2
-  bulletSpeed: 5
+  bulletSpeed: 10
 --- !u!70 &8551003902749599767
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

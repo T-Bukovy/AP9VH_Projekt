@@ -90,21 +90,22 @@ public class UhorScrip : MonoBehaviour
     {
         if (Player != null)
         {
-            //spriteRenderer.sprite = sprites[2];
-            // Instantiate a bullet or projectile at Uhor's position
             GameObject bullet = Instantiate(lighting, transform.position, Quaternion.identity);
 
             // Get the direction to the player
             Vector3 directionToPlayer = (Player.transform.position - transform.position).normalized;
 
-            // Set the rotation of the bullet to match the character's rotation
-            bullet.transform.rotation = transform.rotation;
+            // Calculate the angle between the bullet's forward direction and the direction to the player
+            float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
+
+            // Set the rotation of the bullet to match the calculated angle
+            bullet.transform.rotation = Quaternion.Euler(0, 0, angle - 45); // Adjust for the 45-degree sprite rotation
 
             // Get the Rigidbody2D of the bullet
             Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
 
             // Set the velocity to move only horizontally
-            bulletRb.velocity = new Vector2(directionToPlayer.x, directionToPlayer.y) * bulletSpeed;
+            bulletRb.velocity = directionToPlayer * bulletSpeed;
 
             // Set gravity scale to 0 to prevent falling
             bulletRb.gravityScale = 0;
@@ -112,17 +113,8 @@ public class UhorScrip : MonoBehaviour
             // Ignore collisions with the character
             Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 
-          
             // Destroy the bullet after reaching max range
-           
-
-            //if (Physics2D.Raycast(transform.position, directionToPlayer, maxDistance, LayerMask.GetMask("Player")))
-            //{
-            //    Player.transform.position = MapGenerator.PlayerStart;
-
-            //}
             Destroy(bullet, maxDistance / bulletSpeed);
-            //spriteRenderer.sprite = sprites[0];
         }
     }
 }
