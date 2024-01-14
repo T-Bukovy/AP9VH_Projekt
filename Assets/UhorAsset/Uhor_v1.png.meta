@@ -129,7 +129,7 @@ TextureImporter:
         x: 4
         y: 113
         width: 88
-        height: 51
+        height: 67
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: Uhor_v1_1
       rect:
         serializedVersion: 2
-        x: 100
+        x: 101
         y: 113
         width: 88
-        height: 51
+        height: 67
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,7 +213,7 @@ TextureImporter:
         x: 4
         y: 17
         width: 88
-        height: 56
+        height: 67
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

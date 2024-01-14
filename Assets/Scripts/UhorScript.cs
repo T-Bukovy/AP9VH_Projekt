@@ -8,7 +8,9 @@ public class UhorScrip : MonoBehaviour
 
     [SerializeField] private Sprite[] leftFacingSprites;
     [SerializeField] private Sprite[] rightFacingSprites;
-    public GameObject Player;
+
+    Animator _animatorController;
+
     private SpriteRenderer spriteRenderer;
     public GameObject lighting;
     public float maxDistance = 10f;
@@ -17,12 +19,15 @@ public class UhorScrip : MonoBehaviour
     private float lastShootTime;
 
     private float distance;
+    private GameObject Player;
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-
+        _animatorController = GetComponent<Animator>();
+        Player = GameObject.FindGameObjectWithTag("Player");
         lastShootTime = -shootDelay; // Initialize to allow immediate shooting
+        _animatorController.SetTrigger("PlayerLeft");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -42,25 +47,36 @@ public class UhorScrip : MonoBehaviour
         {
             // Get the direction from the player to this object
             Vector3 directionToPlayer = Player.transform.position - transform.position;
-
-            if (directionToPlayer.magnitude <= maxDistance)
+            
+            //spriteRenderer.sprite = rightFacingSprites[0];
+            //spriteRenderer.sprite = leftFacingSprites[0];
+            if(directionToPlayer.magnitude <= maxDistance)
             {
-                // Check if the player is to the left or right
                 if (directionToPlayer.x > 0)
                 {
-                    // Player is to the right
-                    ChangeSprite(rightFacingSprites);
+                    if (Time.time - lastShootTime >= shootDelay)
+                    {
+                        _animatorController.SetTrigger("ShootPlayerRight");
+                        Shoot();
+                        lastShootTime = Time.time;
+                    }
+                    else
+                    {
+                        _animatorController.SetTrigger("PlayerRight");
+                    }
                 }
                 else
                 {
-                    // Player is to the left
-                    ChangeSprite(leftFacingSprites);
-                }
-
-                if (Time.time - lastShootTime >= shootDelay)
-                {
-                    Shoot();
-                    lastShootTime = Time.time; // Record the time of the last shot
+                    if (Time.time - lastShootTime >= shootDelay)
+                    {
+                        _animatorController.SetTrigger("ShootPlayerLeft");
+                        Shoot();
+                        lastShootTime = Time.time;
+                    }
+                    else
+                    {
+                        _animatorController.SetTrigger("PlayerLeft");
+                    }
                 }
             }
         }
@@ -72,13 +88,14 @@ public class UhorScrip : MonoBehaviour
  
 
         // Change the sprite based on direction
-        spriteRenderer.sprite = sprites[0]; // Assuming you only have one sprite for each direction
+        spriteRenderer.sprite = sprites[2]; // Assuming you only have one sprite for each direction
     }
 
     void Shoot()
     {
         if (Player != null)
         {
+            //spriteRenderer.sprite = sprites[2];
             // Instantiate a bullet or projectile at Uhor's position
             GameObject bullet = Instantiate(lighting, transform.position, Quaternion.identity);
 
@@ -110,7 +127,7 @@ public class UhorScrip : MonoBehaviour
 
             //}
             Destroy(bullet, maxDistance / bulletSpeed);
-
+            //spriteRenderer.sprite = sprites[0];
         }
     }
 }
