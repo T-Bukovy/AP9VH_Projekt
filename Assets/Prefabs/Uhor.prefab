@@ -113,7 +113,7 @@ MonoBehaviour:
   - {fileID: -738494376, guid: 08a542de53d727e49bb7fe4f9ebd2606, type: 3}
   lighting: {fileID: 8542154401468345281, guid: ce0744c3fc5ae854bbf8f3a373104e22, type: 3}
   maxDistance: 4
-  shootDelay: 2
+  shootDelay: 4
   bulletSpeed: 10
 --- !u!70 &8551003902749599767
 CapsuleCollider2D:
@@ -147,8 +147,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.88, y: 0.51}
+  m_Offset: {x: -0.000000006821619, y: -0.057223894}
+  m_Size: {x: 0.8800001, y: 0.39555335}
   m_Direction: 1
 --- !u!95 &2426743091080471311
 Animator:
