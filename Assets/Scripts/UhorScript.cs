@@ -37,7 +37,7 @@ public class UhorScrip : MonoBehaviour
 
             popAudio.Play();
             Destroy(collision.gameObject);
-            Destroy(gameObject, popAudio.clip.length);
+            Destroy(gameObject, popAudio.clip.length/2);
 
         }
     }
