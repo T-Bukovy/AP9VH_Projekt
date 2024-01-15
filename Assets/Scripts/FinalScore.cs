@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinalScore : MonoBehaviour
 {
@@ -13,8 +14,17 @@ public class FinalScore : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+
+    public void QuitGame()
     {
-        
+        Application.Quit();
+    }
+
+    public void RestartGame()
+    {
+        PointCollector.globalScore = 0;
+        PointCollector.levelScore = 0;
+        SceneManager.LoadScene(0);
+
     }
 }

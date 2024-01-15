@@ -172,7 +172,7 @@ MonoBehaviour:
   emptyPrefab: {fileID: 3964624162538930997, guid: aa28b9fb782153147a6c5aee762fb80e, type: 3}
   wallPrefab: {fileID: 7861927711760399957, guid: 1583e29f6135beb4fb0eea56cb0a425e, type: 3}
   Player: {fileID: 1081461779}
-  Konec: {fileID: 1921375809836240889, guid: 78c37f0c43767474ea620460793b9ae3, type: 3}
+  Konec: {fileID: 6932635543053555012, guid: 0734c42d4c0f54d43ac95c1c3f35054a, type: 3}
   Bodik: {fileID: 1924941573959919782, guid: 82fbe7b3b9be5c64796824cdff144353, type: 3}
   Rasa: {fileID: 7564968368195062520, guid: e9ef47368101ae647acb172d8dc533bd, type: 3}
   RasaLong: {fileID: 1071234230244589847, guid: 69d88fddbd9812348bc57867bd84985e, type: 3}
