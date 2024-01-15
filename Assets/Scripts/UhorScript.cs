@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class UhorScrip : MonoBehaviour
 {
 
     [SerializeField] private Sprite[] leftFacingSprites;
     [SerializeField] private Sprite[] rightFacingSprites;
+    [SerializeField] private AudioSource popAudio;
 
     Animator _animatorController;
 
@@ -36,8 +34,11 @@ public class UhorScrip : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ammo"))
         {
+
+            popAudio.Play();
             Destroy(collision.gameObject);
-            Destroy(gameObject);
+            Destroy(gameObject, popAudio.clip.length);
+
         }
     }
 
@@ -49,10 +50,10 @@ public class UhorScrip : MonoBehaviour
         {
             // Get the direction from the player to this object
             Vector3 directionToPlayer = Player.transform.position - transform.position;
-            
+
             //spriteRenderer.sprite = rightFacingSprites[0];
             //spriteRenderer.sprite = leftFacingSprites[0];
-            if(directionToPlayer.magnitude <= maxDistance)
+            if (directionToPlayer.magnitude <= maxDistance)
             {
                 if (directionToPlayer.x > 0)
                 {
@@ -62,7 +63,7 @@ public class UhorScrip : MonoBehaviour
                         Shoot();
                         lastShootTime = Time.time;
                     }
-                    else if(isFacingLeft)
+                    else if (isFacingLeft)
                     {
                         _animatorController.SetTrigger("PlayerRight");
                         isFacingLeft = false;
@@ -76,7 +77,7 @@ public class UhorScrip : MonoBehaviour
                         Shoot();
                         lastShootTime = Time.time;
                     }
-                    else if(!isFacingLeft)
+                    else if (!isFacingLeft)
                     {
                         _animatorController.SetTrigger("PlayerLeft");
                         isFacingLeft = true;

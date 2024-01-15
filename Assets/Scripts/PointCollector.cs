@@ -4,6 +4,7 @@ using UnityEngine;
 public class PointCollector : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private AudioSource pointCollected;
     public static int globalScore = 0;
     public static int levelScore = 0;
     public Transform player;
@@ -22,6 +23,7 @@ public class PointCollector : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Perla"))
         {
+            pointCollected.Play();
             Destroy(collision.gameObject);
             levelScore++;
             scoreText.text = "Skore: " + levelScore;
