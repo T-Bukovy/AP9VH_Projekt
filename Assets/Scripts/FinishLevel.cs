@@ -22,6 +22,20 @@ public class FinishLevel : MonoBehaviour
     {
         PointCollector.globalScore = PointCollector.levelScore;
         Debug.Log("Loading next level...");
+        if(SceneManager.GetActiveScene().buildIndex + 1 == 3) //Nutno upravit na poslední ID sceny 
+        {
+            DestroyDontDestroyOnLoadObjects();
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    private void DestroyDontDestroyOnLoadObjects()
+    {
+        KeepMeAlivve[] keepAliveObjects = FindObjectsOfType<KeepMeAlivve>();
+        foreach (KeepMeAlivve keepAliveObject in keepAliveObjects)
+        {
+            // Destroy the game objects that were marked with DontDestroyOnLoad
+            Destroy(keepAliveObject.gameObject);
+        }
     }
 }
