@@ -22,7 +22,7 @@ public class FinishLevel : MonoBehaviour
     {
         PointCollector.globalScore = PointCollector.levelScore;
         Debug.Log("Loading next level...");
-        if(SceneManager.GetActiveScene().buildIndex + 1 == 3) //Nutno upravit na poslední ID sceny 
+        if(SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings-1) //Nutno upravit na poslední ID sceny 
         {
             DestroyDontDestroyOnLoadObjects();
         }
