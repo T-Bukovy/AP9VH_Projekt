@@ -52,7 +52,7 @@ public class MapGenerator : MonoBehaviour
                 }
                 else if (matrixValue == 3) //hodnota pro pøedmìty na sbírání 
                 {
-                    Vector3 position = new Vector3(xPosition, yPosition - 0.48F, 0);
+                    Vector3 position = new Vector3(xPosition, yPosition - 0.58F, -1);
                     Instantiate(bodik, position, Quaternion.identity);
                 }
                 else if (matrixValue == 4) //Konec 
@@ -63,16 +63,30 @@ public class MapGenerator : MonoBehaviour
                 }
                 else if (matrixValue == 5) //Rasa 
                 {
-                    Vector3 position = new Vector3(xPosition, 0.58F, 0);
+                    Vector3 position = new Vector3(xPosition, yPosition - 0.7F, 0);
                     Instantiate(rasa, position, Quaternion.identity);
 
                 }
+                else if (matrixValue == 55)
+                {
+                    Vector3 position = new Vector3(xPosition, yPosition + 0.68F, 0);
+                    Quaternion rotation = Quaternion.Euler(0, 0, 180); // Adjust the rotation values as needed
+                    Instantiate(rasa, position, rotation);
+                }
                 else if (matrixValue == 6) //RasaLong
                 {
-                    Vector3 position = new Vector3(xPosition, 0.58F, 0);
+                    Vector3 position = new Vector3(xPosition, yPosition - 0.7F, 0);
                     Instantiate(rasaLong, position, Quaternion.identity);
 
                 }
+
+                else if (matrixValue == 66)
+                {
+                    Vector3 position = new Vector3(xPosition, yPosition + 0.68F, 0);
+                    Quaternion rotation = Quaternion.Euler(0, 0, 180); // Adjust the rotation values as needed
+                    Instantiate(rasaLong, position, rotation);
+                }
+
                 else if (matrixValue == 7) //Uhor
                 {
                     Vector3 position = new Vector3(xPosition, yPosition - 0.35F, 0);
