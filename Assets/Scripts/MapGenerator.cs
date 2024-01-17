@@ -11,7 +11,7 @@ public class MapGenerator : MonoBehaviour
 
     public static Vector3 PlayerStart;
 
-    public void GenerateMap(int[,] map, GameObject emptySpacePrefab, GameObject wallPrefab, GameObject player, GameObject konec, GameObject bodik, GameObject rasa, GameObject rasaLong, GameObject uhor,
+    public void GenerateMap(long[,] map, GameObject emptySpacePrefab, GameObject wallPrefab, GameObject player, GameObject konec, GameObject bodik, GameObject rasa, GameObject rasaLong, GameObject uhor,
                     GameObject Textury_Kraj_1, GameObject Textury_Kraj_2, GameObject Textury_Kraj_3, GameObject Textury_Kraj_4,
                     GameObject Textury_vnejsiRoh_1, GameObject Textury_vnejsiRoh_2, GameObject Textury_vnejsiRoh_3, GameObject Textury_vnejsiRoh_4,
                     GameObject Textury_vnitrniRoh_1, GameObject Textury_vnitrniRoh_2, GameObject Textury_vnitrniRoh_3, GameObject Textury_vnitrniRoh_4)
@@ -27,7 +27,7 @@ public class MapGenerator : MonoBehaviour
             //for (int col = numCols - 1; col >= 0; col--)
             for (int col = 0; col < numCols; col++)
             {
-                int matrixValue = map[row, col];
+                long matrixValue = map[row, col];
                 Console.Write(map[row, col] + " ");
                 float xPosition = col * spacingX; // Use col for horizontal position
                 float yPosition = (numRows - row - 1) * spacingY; ; // Use row for vertical position

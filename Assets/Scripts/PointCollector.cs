@@ -5,6 +5,7 @@ public class PointCollector : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private AudioSource pointCollected;
+    [SerializeField] private AudioSource perlaOpen;
     public static int globalScore = 0;
     public static int levelScore = 0;
     public Transform player;
@@ -56,6 +57,7 @@ public class PointCollector : MonoBehaviour
             if (distanceToCollectible < closeDistance)
             {
                 // Set the sprite for close distance
+                perlaOpen.Play();
                 collectibleRenderer.sprite = closeSprite;
             }
             else if (distanceToCollectible >= closeDistance && distanceToCollectible < farDistance)

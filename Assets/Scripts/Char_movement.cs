@@ -31,6 +31,8 @@ public class Char_movement : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI scoreText;
 
+    [SerializeField] private AudioSource shootSound;
+
     bool isDashing = false;
     //private static bool playerExists = false;
     private bool isRepeating = false;
@@ -67,6 +69,7 @@ public class Char_movement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.RightShift))
         {
+            shootSound.Play();
             ShootProjectile();
         }
 
