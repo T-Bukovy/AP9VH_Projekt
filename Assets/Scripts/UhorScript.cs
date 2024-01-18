@@ -61,7 +61,7 @@ public class UhorScrip : MonoBehaviour
                     if (Time.time - lastShootTime >= shootDelay)
                     {
                         _animatorController.SetTrigger("ShootPlayerRight");
-                        shotAudio.Play();
+                        
                         Shoot();
                         lastShootTime = Time.time;
                     }
@@ -76,7 +76,7 @@ public class UhorScrip : MonoBehaviour
                     if (Time.time - lastShootTime >= shootDelay)
                     {
                         _animatorController.SetTrigger("ShootPlayerLeft");
-                        shotAudio.Play();
+                        
                         Shoot();
                         lastShootTime = Time.time;
                     }
@@ -94,7 +94,7 @@ public class UhorScrip : MonoBehaviour
     {
         if (Player != null)
         {
-            
+            shotAudio.Play();
             GameObject bullet = Instantiate(lighting, transform.position, Quaternion.identity);
             
             // Get the direction to the player

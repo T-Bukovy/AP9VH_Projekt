@@ -57,16 +57,19 @@ public class PointCollector : MonoBehaviour
             if (distanceToCollectible < closeDistance)
             {
                 // Set the sprite for close distance
-                perlaOpen.Play();
+                
                 collectibleRenderer.sprite = closeSprite;
             }
             else if (distanceToCollectible >= closeDistance && distanceToCollectible < farDistance)
             {
                 // Set the sprite for medium distance
-                collectibleRenderer.sprite = mediumSprite;
+                collectibleRenderer.sprite = mediumSprite; 
+                perlaOpen.Play();
+
             }
             else
             {
+                
                 // Set the sprite for far distance
                 collectibleRenderer.sprite = farSprite;
             }
