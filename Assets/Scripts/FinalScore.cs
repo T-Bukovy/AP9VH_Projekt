@@ -3,14 +3,23 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class FinalScore : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI bestScore;
     // Start is called before the first frame update
     void Start()
     {
-        scoreText.text = "Vysledne skore = " + PointCollector.globalScore;
+        if (PointCollector.globalScore > PlayerPrefs.GetInt("BestScore"))
+        {
+            PlayerPrefs.SetInt("BestScore", PointCollector.globalScore);
+        }
+
+        bestScore.text = "Best score = " + PlayerPrefs.GetInt("BestScore");
+        scoreText.text = "Final score = " + PointCollector.globalScore;
+
     }
 
     // Update is called once per frame
