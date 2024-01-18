@@ -41,7 +41,7 @@ public class PointCollector : MonoBehaviour
 
     void Start()
     {
-        scoreText.text = "Skore: " + levelScore;
+        scoreText.text = "Score = " + levelScore;
     }
 
     private void UpdateCollectibles()
